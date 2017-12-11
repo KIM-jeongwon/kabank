@@ -3,22 +3,17 @@ package com.kabank.web.serviceImpl;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
+import java.util.Vector;
 
 import com.kabank.web.bean.MemberBean;
 import com.kabank.web.service.MemberService;
 
 public class MemberServiceImpl implements MemberService {
-	private MemberBean[] members;
-	private int count;
 	
+	private Vector<MemberBean> members;
 	
-	public MemberServiceImpl(int count) {
-		members = new MemberBean[count];
-		this.count=0;
-	}
-	@Override
-	public int count() {
-		return this.count;
+	public MemberServiceImpl() {
+		members = new Vector<MemberBean>(10,10);
 	}
 	
 	@Override
@@ -76,11 +71,10 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void addMember(MemberBean member) {
 		// TODO Auto-generated method stub
-		members[count] = member;
-		count++;
+		members.add(member);
 	}
 	@Override
-	public MemberBean[] list() {
+	public Vector<MemberBean> list() {
 		return members;
 	}
 	@Override
@@ -96,5 +90,22 @@ public class MemberServiceImpl implements MemberService {
 		 * else if = case
 		 * else. = default
 		 * */
+	}
+
+	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return members.size();
+	}
+
+	@Override
+	public void deleteAll() {
+		// TODO Auto-generated method stub
+		members.clear();
+	}
+
+	@Override
+	public void delete(String id) {
+		members.indexOf(id);
 	}
 }

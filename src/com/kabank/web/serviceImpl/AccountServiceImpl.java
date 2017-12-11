@@ -26,7 +26,6 @@ public class AccountServiceImpl {
 			}
 		}
 		
-		this.accountNum = accountNum;
 	}
 	public int getAccountNum() {
 		return this.accountNum;

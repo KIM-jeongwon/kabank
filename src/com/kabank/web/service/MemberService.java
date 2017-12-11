@@ -1,5 +1,7 @@
 package com.kabank.web.service;
 
+import java.util.Vector;
+
 import com.kabank.web.bean.MemberBean;
 
 public interface MemberService {
@@ -9,5 +11,7 @@ public interface MemberService {
 	public void setChart(int chart);
 	public int count();
 	public void addMember(MemberBean member);
-	public MemberBean[] list();
+	public Vector<MemberBean> list();
+	public void deleteAll();
+	public void delete(String id);
 }
